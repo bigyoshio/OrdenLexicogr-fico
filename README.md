@@ -53,3 +53,5 @@ Los resultados se guardarán automáticamente en un archivo CSV con el formato: 
 ├── main.cpp                # Programa principal
 └── README.md               # Este archivo de documentación
 ```
+## 📜 Licencia
+Este proyecto está bajo la licencia MIT.
