@@ -12,7 +12,7 @@ int main() {
     std::cout << "Ingrese el total de elementos (n) con n >= 1: ";
     std::cin >> totalElementos;
 
-    std::cout << "Ingrese el tamańo de la combinacion (r) con r <= n: ";
+    std::cout << "Ingrese el tama\240o de la combinacion (r) con r <= n: ";
     std::cin >> tamanoSubconjunto;
 
     if (totalElementos < 1 || tamanoSubconjunto < 0 || tamanoSubconjunto > totalElementos) {
@@ -21,11 +21,11 @@ int main() {
     }
 
     std::cout << "\nEl conjunto se generara con numeros de 1 a " << totalElementos << "\n";
-    std::cout << "\nGenerando combinaciones de un conjunto de tamańo " << totalElementos 
-              << " en cadenas de tamańo " << tamanoSubconjunto << ":\n";
+    std::cout << "\nGenerando combinaciones de un conjunto de tama\244o " << totalElementos
+              << " en cadenas de tama\244o " << tamanoSubconjunto << ":\n";
 
     numeroCombinacionesTeoricas = calcularCombinaciones(totalElementos, tamanoSubconjunto);
-    std::cout << "\nTeoricamente el numero de combinaciones deberia ser: " 
+    std::cout << "\nTeoricamente el numero de combinaciones deberia ser: "
               << numeroCombinacionesTeoricas << "\n";
 
     int combinacionesGeneradas = 0;
@@ -34,3 +34,4 @@ int main() {
 
     return 0;
 }
+
