@@ -2,22 +2,22 @@
 Este programa genera todas las combinaciones posibles de un conjunto de n elementos tomados de r en r, en orden lexicográfico, y las guarda en un archivo CSV. El proyecto incluye implementaciones de varios algoritmos de ordenamiento que pueden ser utilizados para procesar los resultados.
 
 ## Características Principales
-Generación de combinaciones en orden lexicográfico
+- Generación de combinaciones en orden lexicográfico
 
-Cálculo del número teórico de combinaciones posibles (nCr)
+- Cálculo del número teórico de combinaciones posibles (nCr)
 
-Exportación de resultados a archivos CSV con nombres automáticos
+- Exportación de resultados a archivos CSV con nombres automáticos
 
-Implementación de múltiples algoritmos de ordenamiento
+- Implementación de múltiples algoritmos de ordenamiento
 
-Validación de entrada de datos
+- Validación de entrada de datos
 
 ## 💻 Requisitos del Sistema
-Compilador C++ compatible con C++11 o superior
+- Compilador C++ compatible con C++11 o superior
 
-Sistema operativo Windows, Linux o macOS
+- Sistema operativo Windows, Linux o macOS
 
-Suficiente espacio en disco para almacenar los archivos CSV generados
+- Suficiente espacio en disco para almacenar los archivos CSV generados
 
 ## 🔧 Instrucciones de Compilación
 Clona el repositorio o descarga los archivos fuente
@@ -34,10 +34,10 @@ Ejecuta el programa compilado:
 ```
 
 ## 🚀 Uso del Programa
-Ejecuta el programa desde la terminal/consola
-Ingresa el valor de n (número total de elementos, n ≥ 1)
-Ingresa el valor de r (tamaño de cada combinación, 0 ≤ r ≤ n)
-El programa mostrará las combinaciones generadas en la consola
+1. Ejecuta el programa desde la terminal/consola
+2. Ingresa el valor de n (número total de elementos, n ≥ 1)
+3. Ingresa el valor de r (tamaño de cada combinación, 0 ≤ r ≤ n)
+4. El programa mostrará las combinaciones generadas en la consola
 
 Los resultados se guardarán automáticamente en un archivo CSV con el formato: CombinacionesLexicograficas_nX_rY.csv
 
