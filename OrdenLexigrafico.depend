@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1744416242 source:c:\users\alb3r\onedrive\documentos\programacion\ordenlexigrafico\ordenamientos.cpp
+	"Ordenamientos.h"
+	<algorithm>
+	<vector>
+
+1744416473 c:\users\alb3r\onedrive\documentos\programacion\ordenlexigrafico\ordenamientos.h
+	<vector>
+
+1744417100 source:c:\users\alb3r\onedrive\documentos\programacion\ordenlexigrafico\main.cpp
+	<iostream>
+	<iomanip>
+	"Gestiones.h"
+	"Combinaciones.h"
+
+1744417100 c:\users\alb3r\onedrive\documentos\programacion\ordenlexigrafico\gestiones.h
+	<iostream>
+	<fstream>
+	<string>
+
+1744417100 source:c:\users\alb3r\onedrive\documentos\programacion\ordenlexigrafico\gestiones.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<sstream>
+	"Gestiones.h"
+
+1744416917 source:c:\users\alb3r\onedrive\documentos\programacion\ordenlexigrafico\combinaciones.cpp
+	<cmath>
+	<iostream>
+	"Combinaciones.h"
+
+1744416917 c:\users\alb3r\onedrive\documentos\programacion\ordenlexigrafico\combinaciones.h
+
