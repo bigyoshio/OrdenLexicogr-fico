@@ -4,28 +4,35 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <vector>
 
 /**
- * @brief Procesa y muestra una combinación, guardándola en un archivo CSV
- * @param s Arreglo de enteros con la combinación actual
- * @param r Tamaño de la combinación
- * @param csvFile Archivo CSV donde se guardará la combinación
- * @param conteoGenerados Contador de combinaciones generadas (se incrementa)
- * @note Muestra la combinación en consola y la escribe en el archivo
+ * @brief Procesa y muestra una combinación generada
+ * 
+ * @param combinacionActual Arreglo con la combinación actual
+ * @param tamanoSubconjunto Tamaño de la combinación (r)
+ * @param archivoSalida Archivo CSV donde se guardarán las combinaciones
+ * @param contadorCombinaciones Referencia al contador total de combinaciones generadas
+ * 
+ * @note Muestra la combinación en consola y la escribe en el archivo CSV
+ * @note Incrementa el contador de combinaciones generadas
  */
-void procesarCombinacion(const int* s, int r, std::ofstream& csvFile, int& conteoGenerados);
+void procesarCombinacion(const int* combinacionActual, int tamanoSubconjunto, 
+                        std::ofstream& archivoSalida, int& contadorCombinaciones);
 
 /**
- * @brief Genera todas las combinaciones lexicográficas de n elementos tomados de r en r
- * @param n Total de elementos disponibles
- * @param conteoGenerados Variable que almacenará el total de combinaciones generadas
- * @param r Tamaño de cada combinación
- * @param filename Nombre del archivo CSV de salida (si está vacío, se genera automáticamente)
- * @note Genera un archivo CSV con todas las combinaciones
- * @note Si r = 0, genera un conjunto vacío
- * @note Si n < 1 o r > n, muestra un error y termina
+ * @brief Genera todas las combinaciones posibles en orden lexicográfico
+ * 
+ * @param totalElementos Número total de elementos (n)
+ * @param contadorCombinaciones Referencia al contador total de combinaciones generadas
+ * @param tamanoSubconjunto Tamaño de cada combinación (r)
+ * @param nombreArchivo Nombre opcional del archivo de salida (si está vacío, se genera automáticamente)
+ * 
+ * @note Genera combinaciones en orden lexicográfico usando un algoritmo iterativo
+ * @note Crea un archivo CSV con todas las combinaciones generadas
+ * @note Valida que 1 ≤ n y 0 ≤ r ≤ n
+ * @note Si r == 0, genera solo el conjunto vacío
  */
-void generarCombinaciones(int n, int& conteoGenerados, int r, const std::string& filename = "");
+void generarCombinaciones(int totalElementos, int& contadorCombinaciones, 
+                         int tamanoSubconjunto, const std::string& nombreArchivo = "");
 
 #endif // GESTIONES_H_INCLUDED
