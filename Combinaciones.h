@@ -1,4 +1,3 @@
-#ifndef GESTIONES_H_INCLUDED
 #define GESTIONES_H_INCLUDED
 
 #include <iostream>
