@@ -4,87 +4,84 @@
 #include <sstream>
 #include "Gestiones.h"
 
-void procesarCombinacion(const int* s, int r, std::ofstream& csvFile, int& conteoGenerados)
-{
+void procesarCombinacion(const int* combinacionActual, int tamanoSubconjunto, 
+                        std::ofstream& archivoSalida, int& contadorCombinaciones) {
     std::cout << "{ ";
-    for (int i = 0; i < r; ++i) {
-        std::cout << s[i] << (i < r - 1 ? ", " : "");
+    for (int indice = 0; indice < tamanoSubconjunto; ++indice) {
+        std::cout << combinacionActual[indice] << (indice < tamanoSubconjunto - 1 ? ", " : "");
     }
     std::cout << " }" << std::endl;
 
-    for (int i = 0; i < r; ++i) {
-        csvFile << s[i];
-        if (i < r - 1) {
-            csvFile << ",";
+    for (int indice = 0; indice < tamanoSubconjunto; ++indice) {
+        archivoSalida << combinacionActual[indice];
+        if (indice < tamanoSubconjunto - 1) {
+            archivoSalida << ",";
         }
     }
-    csvFile << "\n";
+    archivoSalida << "\n";
 
-    ++conteoGenerados;
+    ++contadorCombinaciones;
 }
 
-void generarCombinaciones(int n, int& conteoGenerados, int r, const std::string& filename)
-{
-    if (n < 1 || r < 0 || r > n)
-    {
-        std::cerr << "Error: n debe ser ≥ 1 y 0 ≤ r ≤ n" << std::endl;
+void generarCombinaciones(int totalElementos, int& contadorCombinaciones, 
+                         int tamanoSubconjunto, const std::string& nombreArchivo) {
+    if (totalElementos < 1 || tamanoSubconjunto < 0 || tamanoSubconjunto > totalElementos) {
+        std::cerr << "Error: totalElementos debe ser ≥ 1 y 0 ≤ tamanoSubconjunto ≤ totalElementos" << std::endl;
         return;
     }
 
-    std::string nombreArchivo = filename;
-    if (nombreArchivo.empty()) {
-        std::ostringstream oss;
-        oss << "CombinacionesLexicograficas_n" << n << "_r" << r << ".csv";
-        nombreArchivo = oss.str();
+    std::string nombreArchivoSalida = nombreArchivo;
+    if (nombreArchivoSalida.empty()) {
+        std::ostringstream flujoSalida;
+        flujoSalida << "CombinacionesLexicograficas_n" << totalElementos << "_r" << tamanoSubconjunto << ".csv";
+        nombreArchivoSalida = flujoSalida.str();
     }
 
-    std::ofstream csvFile(nombreArchivo);
-    if (!csvFile.is_open())
-    {
-        std::cerr << "Error al crear el archivo " << nombreArchivo << std::endl;
+    std::ofstream archivoSalida(nombreArchivoSalida);
+    if (!archivoSalida.is_open()) {
+        std::cerr << "Error al crear el archivo " << nombreArchivoSalida << std::endl;
         return;
     }
 
-    if (r == 0)
-    {
+    if (tamanoSubconjunto == 0) {
         std::cout << "{ }" << std::endl;
-        csvFile << "\n";
-        csvFile.close();
+        archivoSalida << "\n";
+        archivoSalida.close();
         return;
     }
 
-    int* s = new int[r];
+    int* combinacionActual = new int[tamanoSubconjunto];
 
-    for (int i = 0; i < r; ++i) {
-        s[i] = i + 1;
+    for (int indice = 0; indice < tamanoSubconjunto; ++indice) {
+        combinacionActual[indice] = indice + 1;
     }
 
-    procesarCombinacion(s, r, csvFile, conteoGenerados);
+    procesarCombinacion(combinacionActual, tamanoSubconjunto, archivoSalida, contadorCombinaciones);
 
     while (true) {
-        int m = r - 1;
-        int val_max = n;
+        int posicionActual = tamanoSubconjunto - 1;
+        int valorMaximo = totalElementos;
 
-        while (m >= 0 && s[m] == val_max) {
-            --m;
-            --val_max;
+        while (posicionActual >= 0 && combinacionActual[posicionActual] == valorMaximo) {
+            --posicionActual;
+            --valorMaximo;
         }
 
-        if (m < 0) {
+        if (posicionActual < 0) {
             break;
         }
 
-        ++s[m];
+        ++combinacionActual[posicionActual];
 
-        for (int j = m + 1; j < r; ++j) {
-            s[j] = s[j - 1] + 1;
+        for (int indiceSiguiente = posicionActual + 1; indiceSiguiente < tamanoSubconjunto; ++indiceSiguiente) {
+            combinacionActual[indiceSiguiente] = combinacionActual[indiceSiguiente - 1] + 1;
         }
 
-        procesarCombinacion(s, r, csvFile, conteoGenerados);
+        procesarCombinacion(combinacionActual, tamanoSubconjunto, archivoSalida, contadorCombinaciones);
     }
 
-    delete[] s;
-    csvFile.close();
+    delete[] combinacionActual;
+    archivoSalida.close();
 
-    std::cout << "\nCombinaciones guardadas en " << nombreArchivo << std::endl;
+    std::cout << "\nCombinaciones guardadas en " << nombreArchivoSalida << std::endl;
 }
