@@ -20,9 +20,9 @@ Este programa genera todas las combinaciones posibles de un conjunto de n elemen
 - Suficiente espacio en disco para almacenar los archivos CSV generados
 
 ## 🔧 Instrucciones de Compilación
-Clona el repositorio o descarga los archivos fuente
+1. Clona el repositorio o descarga los archivos fuente
 
-Compila todos los archivos .cpp juntos:
+2. Compila todos los archivos .cpp juntos:
 
 ```bash
 g++ -std=c++11 main.cpp Gestiones.cpp Combinaciones.cpp Ordenamientos.cpp -o combinaciones
